@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.courseproject.app.AppTest" time="0.037" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.courseproject.app.AppTest" time="0.03" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="gopherProxySet" value="false"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
@@ -17,7 +17,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/lib"/>
-    <property name="sun.java.command" value="/Users/NingnaWang/ninwang/utd/2020spring/CS6367Project/asm/target/surefire/surefirebooter7120097413008664000.jar /Users/NingnaWang/ninwang/utd/2020spring/CS6367Project/asm/target/surefire 2020-03-11T14-14-43_954-jvmRun1 surefire1795177214679370651tmp surefire_08001554148137763838tmp"/>
+    <property name="sun.java.command" value="/Users/NingnaWang/ninwang/utd/2020spring/CS6367Project/asm/target/surefire/surefirebooter8838128714568011348.jar /Users/NingnaWang/ninwang/utd/2020spring/CS6367Project/asm/target/surefire 2020-03-11T14-37-27_011-jvmRun1 surefire4190571216268524096tmp surefire_04066384806224545402tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="surefire.test.class.path" value="/Users/NingnaWang/ninwang/utd/2020spring/CS6367Project/asm/target/test-classes:/Users/NingnaWang/ninwang/utd/2020spring/CS6367Project/asm/target/classes:/Users/NingnaWang/.m2/repository/junit/junit/4.11/junit-4.11.jar:/Users/NingnaWang/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -31,7 +31,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/Users/NingnaWang/ninwang/utd/2020spring/CS6367Project/asm/target/surefire/surefirebooter7120097413008664000.jar"/>
+    <property name="surefire.real.class.path" value="/Users/NingnaWang/ninwang/utd/2020spring/CS6367Project/asm/target/surefire/surefirebooter8838128714568011348.jar"/>
     <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/classes"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
@@ -61,5 +61,6 @@
     <property name="java.class.version" value="52.0"/>
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase name="shouldAnswerWithTrue" classname="com.courseproject.app.AppTest" time="0.002"/>
+  <testcase name="process" classname="com.courseproject.app.AppTest" time="0.003"/>
+  <testcase name="compute" classname="com.courseproject.app.AppTest" time="0"/>
 </testsuite>

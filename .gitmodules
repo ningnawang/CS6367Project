@@ -1,0 +1,30 @@
+[submodule "sampleProjects/compress"]
+	path = sampleProjects/compress
+	url = git@github.com:ning/compress.git
+[submodule "sampleProjects/ashot"]
+	path = sampleProjects/ashot
+	url = git@github.com:pazone/ashot.git
+[submodule "sampleProjects/elasticsearch-knapsack"]
+	path = sampleProjects/elasticsearch-knapsack
+	url = git@github.com:jprante/elasticsearch-knapsack.git
+[submodule "sampleProjects/EasyFlow"]
+	path = sampleProjects/EasyFlow
+	url = git@github.com:Beh01der/EasyFlow.git
+[submodule "sampleProjects/JAdventure"]
+	path = sampleProjects/JAdventure
+	url = git@github.com:Progether/JAdventure.git
+[submodule "sampleProjects/jogger"]
+	path = sampleProjects/jogger
+	url = git@github.com:elibom/jogger.git
+[submodule "sampleProjects/LastCalc"]
+	path = sampleProjects/LastCalc
+	url = git@github.com:sanity/LastCalc.git
+[submodule "sampleProjects/linkbench"]
+	path = sampleProjects/linkbench
+	url = git@github.com:facebookarchive/linkbench.git
+[submodule "sampleProjects/microorm"]
+	path = sampleProjects/microorm
+	url = git@github.com:chalup/microorm.git
+[submodule "sampleProjects/spark"]
+	path = sampleProjects/spark
+	url = git@github.com:perwendel/spark.git

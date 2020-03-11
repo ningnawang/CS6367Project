@@ -8,12 +8,13 @@ An automated coverage collection tool that would collect the statement coverage 
 
 - How to build the project:
 ```
-$cd asm
-$mvn package
+$ #From root folder
+$ mvn package
 ```
 - How to test run the newly compiled JAR:
 ```
-$java -cp target/asm-1.0-SNAPSHOT.jar com.courseproject.app.App
+$ cd asm
+$ java -cp target/agent-0.1-SNAPSHOT.jar com.courseproject.app.App
 ```
 - How to run maven test:
 ```

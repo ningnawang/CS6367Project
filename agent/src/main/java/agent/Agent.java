@@ -12,7 +12,7 @@ public class Agent {
         Runtime.getRuntime().addShutdownHook(new Thread() {
          	@Override
          	public void run() {
-         		SCClassFileTransformer.printCoverageMap();
+         		System.out.println(SCCollector.mCoverageMap);
          	}
         });
     }

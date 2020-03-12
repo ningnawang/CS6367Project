@@ -5,22 +5,15 @@ import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Label;
 
-import java.util.Map;
-import java.util.SortedSet;
-import java.util.TreeSet;
-
 // statement coverage class visitor
 public class SCClassVisitor extends ClassVisitor implements Opcodes {
     private final String className;
-    private final Map<String, SortedSet<Integer>> mCoverageMap; // method coverage map
 
     // constructor
     public SCClassVisitor(final ClassVisitor cv,
-                          final String name,
-                          Map<String, SortedSet<Integer>> map) {
+                          final String name) {
         super(Opcodes.ASM5, cv);
         this.className = name;
-        this.mCoverageMap = map;
     }
 
     @Override
@@ -28,34 +21,39 @@ public class SCClassVisitor extends ClassVisitor implements Opcodes {
                                      final String desc, final String signature,
                                      final String[] exceptions) {
         MethodVisitor mv = cv.visitMethod(access, name, desc, signature, exceptions);
-        return mv == null ? null : new SCMethodVisitor(mv, name, mCoverageMap);
+        return mv == null ? null : new SCMethodVisitor(mv, name);
     }
 
     // inner class
     private class SCMethodVisitor extends MethodVisitor implements Opcodes {
         private final String methodName;
-        private final Map<String, SortedSet<Integer>> mCoverageMap;
+        private int line;
 
         public SCMethodVisitor(MethodVisitor mv,
-                               String methodName,
-                               Map<String, SortedSet<Integer>>	map) {
+                               String methodName) {
             super(Opcodes.ASM5, mv);
             this.methodName = methodName;
-            this.mCoverageMap = map;
         }
 
         @Override
         public void visitLineNumber(int line, Label start) {
-//            System.out.println(methodName+line);
-            if (mCoverageMap.containsKey(methodName)) {
-                SortedSet<Integer> lines = mCoverageMap.get(methodName);
-                lines.add(line);
-            } else {
-                SortedSet<Integer> lines = new TreeSet<>();
-                lines.add(line);
-                mCoverageMap.put(methodName, lines);
+            if (0 != line) {
+                this.line = line;
+                mv.visitLdcInsn(className);
+                mv.visitIntInsn(SIPUSH, line);
+                mv.visitMethodInsn(INVOKESTATIC, "agent/SCCollector", "visitLineStatic",
+                        "(Ljava/lang/String;I)V", false);
+                super.visitLineNumber(line, start);
             }
-            mv.visitLineNumber(line, start);
+        }
+
+        @Override
+        public void visitLabel(Label arg0) {
+            mv.visitLdcInsn(className);
+            mv.visitIntInsn(SIPUSH, this.line);
+            mv.visitMethodInsn(INVOKESTATIC, "agent/SCCollector", "visitLineStatic",
+                    "(Ljava/lang/String;I)V", false);
+            super.visitLabel(arg0);
         }
     }
 

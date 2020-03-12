@@ -25,6 +25,7 @@ public class SCClassFileTransformer implements ClassFileTransformer {
                             Class<?> aClass,
                             ProtectionDomain protectionDomain,
                             byte[] classfileBuffer) throws IllegalClassFormatException {
+//            System.out.println("className: " + aClass.getAnnotations());
         if (className.contains(projectName)) {
             // method coverage map
             Map<String, SortedSet<Integer>> mcm = new HashMap<String, SortedSet<Integer>>();

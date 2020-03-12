@@ -1,5 +1,3 @@
-package com.codereq.test; // ninwang: do NOT modify this package name
-
 import org.junit.runner.Description;
 import org.junit.runner.Result;
 import org.junit.runner.notification.RunListener;

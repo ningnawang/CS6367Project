@@ -1,5 +1,3 @@
-package agent;
-
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
 
@@ -28,5 +26,7 @@ public class Agent {
             }
         });
     }
+
+    public static void main(String[] args) {}
 
 }

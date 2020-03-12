@@ -13,7 +13,8 @@
   </properties>
 
   <modules>
-    <module>asm</module>
+    <module>agent</module>
+    <module>test</module>
   </modules>
 
   <prerequisites>

@@ -11,10 +11,9 @@ An automated coverage collection tool that would collect the statement coverage 
 $ #From root folder
 $ mvn package
 ```
-- How to test run the newly compiled JAR:
+- How to test run with javaagent: (TODO: need to fix this error)
 ```
-$ cd asm
-$ java -cp target/agent-0.1-SNAPSHOT.jar com.courseproject.app.App
+$java -javaagent:agent/target/agent-0.1-SNAPSHOT.jar -jar test/target/test-0.1-SNAPSHOT.jar
 ```
 - How to run maven test:
 ```

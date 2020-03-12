@@ -11,9 +11,11 @@ An automated coverage collection tool that would collect the statement coverage 
 $ #From root folder
 $ mvn clean package
 ```
-- How to test run with javaagent:
+- How to trigger javaagent for test project:
 ```
-$java -javaagent:agent/target/agent-0.1-SNAPSHOT.jar -jar test/target/test-0.1-SNAPSHOT.jar
+$java -javaagent:agent/target/agent-0.1-SNAPSHOT.jar=<testing project name> -jar test/target/test-0.1-SNAPSHOT.jar
+// example:
+$java -javaagent:agent/target/agent-0.1-SNAPSHOT.jar=test -jar test/target/test-0.1-SNAPSHOT.jar
 ```
 - How to run maven test:
 ```

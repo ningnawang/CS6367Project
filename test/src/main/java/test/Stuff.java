@@ -1,7 +1,7 @@
 package test;
 
 public class Stuff {
-    public void run() {
+    public void print() {
         System.out.println("I AM DOING SOME STUFF...");
     }
 }

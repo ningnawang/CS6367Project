@@ -39,7 +39,7 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.22.1</version>
         <configuration>
-          <argLine>-javaagent:/Users/NingnaWang/ninwang/utd/2020spring/CS6367Project/agent/target/agent-0.1-SNAPSHOT.jar=test/</argLine>
+          <argLine>-javaagent:/home/alakhaggarwal/CS6367Project/agent/target/agent-0.1-SNAPSHOT.jar=test/</argLine>
           <properties>
             <property>
               <name>listener</name>

@@ -10,8 +10,8 @@
   </parent>
 
   <artifactId>test</artifactId>
+  <version>0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
-
 
   <dependencies>
     <dependency>
@@ -29,12 +29,11 @@
           <archive>
             <manifest>
               <addClasspath>true</addClasspath>
-              <mainClass>other.Main</mainClass>
+              <mainClass>test.Main</mainClass>
             </manifest>
           </archive>
         </configuration>
       </plugin>
-      <!-- maven-surefire-plugin -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>

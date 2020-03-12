@@ -12,11 +12,11 @@ import java.util.HashMap;
 import java.util.SortedSet;
 
 public class SCClassFileTransformer implements ClassFileTransformer {
-    private final String projectName;
+    private final String packageName;
     private static Map<String, Map<String, SortedSet<Integer>>> coverageMap = new HashMap<>();
 
     public SCClassFileTransformer(final String name) {
-        this.projectName = name;
+        this.packageName = name;
     }
 
     @Override
@@ -25,8 +25,8 @@ public class SCClassFileTransformer implements ClassFileTransformer {
                             Class<?> aClass,
                             ProtectionDomain protectionDomain,
                             byte[] classfileBuffer) throws IllegalClassFormatException {
-//            System.out.println("className: " + aClass.getAnnotations());
-        if (className.contains(projectName)) {
+//        System.out.println(className + " : " + packageName);
+        if (className.contains(packageName)) {
             // method coverage map
             Map<String, SortedSet<Integer>> mcm = new HashMap<String, SortedSet<Integer>>();
             // ASM Code

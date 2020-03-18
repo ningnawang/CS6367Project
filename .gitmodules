@@ -4,9 +4,6 @@
 [submodule "sampleProjects/ashot"]
 	   path = sampleProjects/ashot
 	   url = git@github.com:pazone/ashot.git
-[submodule "sampleProjects/elasticsearch-knapsack"]
-	   path = sampleProjects/elasticsearch-knapsack
-	   url = git@github.com:jprante/elasticsearch-knapsack.git
 [submodule "sampleProjects/EasyFlow"]
 	   path = sampleProjects/EasyFlow
 	   url = git@github.com:Beh01der/EasyFlow.git
@@ -22,9 +19,12 @@
 [submodule "sampleProjects/linkbench"]
 	   path = sampleProjects/linkbench
 	   url = git@github.com:facebookarchive/linkbench.git
-[submodule "sampleProjects/microorm"]
-	   path = sampleProjects/microorm
-	   url = git@github.com:chalup/microorm.git
 [submodule "sampleProjects/spark"]
 	   path = sampleProjects/spark
 	   url = git@github.com:perwendel/spark.git
+[submodule "sampleProjects/redline"]
+	path = sampleProjects/redline
+	url = git@github.com:craigwblake/redline.git
+[submodule "sampleProjects/spring"]
+	path = sampleProjects/spring
+	url = git@github.com:mybatis/spring.git

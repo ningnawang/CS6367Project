@@ -21,9 +21,9 @@ public class CommonListener extends RunListener {
     public void testRunFinished(Result result) throws Exception {
         System.out.println("Test Run Finished\n");
         try {
-            FileWriter fw = new FileWriter("stmt-cov.txt",true);
+            FileWriter fw = new FileWriter("./stmt-cov.txt",true); // use relative path
             StringBuffer sb = new StringBuffer();
-            System.out.println("=================>" + SCCollector.coverageMap);
+//            System.out.println("=================>" + SCCollector.coverageMap);
             for(String packageName : SCCollector.coverageMap.keySet()) {
                 sb.append(packageName + "\n");
                 Map<String, SortedSet<Integer>> mCoverageMap = SCCollector.coverageMap.get(packageName);
@@ -44,12 +44,12 @@ public class CommonListener extends RunListener {
     public void testStarted(Description description) throws Exception {
         SCCollector.packageName = "[TEST] " + description.getClassName() + ":" + description.getMethodName();
         SCCollector.mCoverageMap = new HashMap<>();
-        System.out.println(SCCollector.packageName);
+//        System.out.println(SCCollector.packageName);
     }
     
     public void testFinished(Description description) throws Exception {
         SCCollector.coverageMap.put(SCCollector.packageName, SCCollector.mCoverageMap);
-        System.out.println(SCCollector.packageName + " Finished\n");
+//        System.out.println(SCCollector.packageName + " Finished\n");
     }
 
 

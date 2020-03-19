@@ -25,7 +25,20 @@ public class SCClassFileTransformer implements ClassFileTransformer {
                             ProtectionDomain protectionDomain,
                             byte[] classfileBuffer) throws IllegalClassFormatException {
 //        System.out.println(className + " : " + packageName);
-        if (className.contains(packageName)) {
+        if (className.contains(packageName) ||
+            className.contains("org/apache/commons/dbutils/") ||
+            className.contains("pazone/ashot/") ||
+            className.contains("com/ning/compress/") ||
+            className.contains("perf/") ||
+            className.contains("com/jadventure/game") ||
+            className.contains("com/elibom/jogger/") ||
+            className.contains("com/lastcalc/") ||
+            className.contains("com/facebook/LinkBench/") ||
+            className.contains("org/redline_rpm/") ||
+            className.contains("org/mybatis") ||
+            className.contains("au/com/ds/ef/") ||
+            className.contains("spark/")) {
+
             // method coverage map
             Map<String, SortedSet<Integer>> mcm = new HashMap<String, SortedSet<Integer>>();
             // ASM Code

@@ -7,13 +7,18 @@ We will be working on Statement Coverage.
 An automated coverage collection tool that would collect the statement coverage for 10 real-world java projects (>1000 lines of code) with JUnit tests (>50 tests) from GitHub.
 
 ### For production
-1. build agent
+1. pull all sample projects:
+```
+$ git submodule update --init
+```
+
+2. build agent
 ```
 $ cd agent
 $ mvn clean package
 ```
 
-2. go to any project want to test, add following into pom.xml
+3. go to any project want to test, add following into pom.xml
 ```
 <plugin>
 <groupId>org.apache.maven.plugins</groupId>
@@ -36,7 +41,7 @@ For example, to run agent under test of project commons-dbutils, you should add:
     <argLine>-javaagent:/Users/NingnaWang/ninwang/utd/2020spring/CS6367Project/agent/target/agent-0.1-SNAPSHOT.jar=org/apache/commons/dbutils</argLine>
 ```
 
-3. under project, run
+4. under project, run
 ```
 $ mvn clean test
 ```

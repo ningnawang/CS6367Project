@@ -1,30 +1,30 @@
-[submodule "sampleProjects/compress"]
-	   path = sampleProjects/compress
-	   url = git@github.com:ning/compress.git
-[submodule "sampleProjects/ashot"]
-	   path = sampleProjects/ashot
-	   url = git@github.com:pazone/ashot.git
-[submodule "sampleProjects/EasyFlow"]
-	   path = sampleProjects/EasyFlow
-	   url = git@github.com:Beh01der/EasyFlow.git
-[submodule "sampleProjects/JAdventure"]
-	   path = sampleProjects/JAdventure
-	   url = git@github.com:Progether/JAdventure.git
-[submodule "sampleProjects/jogger"]
-	   path = sampleProjects/jogger
-	   url = git@github.com:elibom/jogger.git
-[submodule "sampleProjects/LastCalc"]
-	   path = sampleProjects/LastCalc
-	   url = git@github.com:sanity/LastCalc.git
-[submodule "sampleProjects/linkbench"]
-	   path = sampleProjects/linkbench
-	   url = git@github.com:facebookarchive/linkbench.git
-[submodule "sampleProjects/spark"]
-	   path = sampleProjects/spark
-	   url = git@github.com:perwendel/spark.git
-[submodule "sampleProjects/redline"]
-	path = sampleProjects/redline
-	url = git@github.com:craigwblake/redline.git
-[submodule "sampleProjects/spring"]
-	path = sampleProjects/spring
-	url = git@github.com:mybatis/spring.git
+[submodule "JAdventure"]
+	path = JAdventure
+	url = https://github.com/Progether/JAdventure
+[submodule "LastCalc"]
+	path = LastCalc
+	url = https://github.com/sanity/LastCalc
+[submodule "linkbench"]
+	path = linkbench
+	url = https://github.com/facebook/linkbench
+[submodule "spark"]
+	path = spark
+	url = https://github.com/perwendel/spark
+[submodule "commons-codec"]
+	path = commons-code
+	url = "https://github.com/apache/commons-codec"
+[submodule "Bukkit"]
+	path = Bukkit
+	url = "https://github.com/Bukkit/Bukkit"
+[submodule "druid"]
+	path = druid
+	url = "https://github.com/alibaba/druid"
+[submodule "javapoet"]
+	path = javapoet
+	url = "https://github.com/square/javapoet"
+[submodule "OpenTripPlanner"]
+	path = OpenTripPlanner
+	url = "https://github.com/opentripplanner/OpenTripPlanner"
+[submodule "stream-lib"]
+	path = stream-lib
+	url = "https://github.com/addthis/stream-lib"

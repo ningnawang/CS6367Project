@@ -62,3 +62,6 @@ $ java -javaagent:agent/target/agent-0.1-SNAPSHOT.jar=test -jar test/target/test
 ```
 $ mvn test
 ```
+
+### For running forked test
+$ mvn -T 6 surefire:test

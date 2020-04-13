@@ -1,0 +1,30 @@
+[submodule "JAdventure"]
+	path = JAdventure
+	url = https://github.com/Progether/JAdventure
+[submodule "LastCalc"]
+	path = LastCalc
+	url = https://github.com/sanity/LastCalc
+[submodule "linkbench"]
+	path = linkbench
+	url = https://github.com/facebook/linkbench
+[submodule "spark"]
+	path = spark
+	url = https://github.com/perwendel/spark
+[submodule "commons-codec"]
+	path = commons-codec
+	url = https://github.com/apache/commons-codec
+[submodule "Bukkit"]
+	path = Bukkit
+	url = https://github.com/Bukkit/Bukkit
+[submodule "druid"]
+	path = druid
+	url = https://github.com/alibaba/druid
+[submodule "javapoet"]
+	path = javapoet
+	url = https://github.com/square/javapoet
+[submodule "OpenTripPlanner"]
+	path = OpenTripPlanner
+	url = https://github.com/opentripplanner/OpenTripPlanner
+[submodule "stream-lib"]
+	path = stream-lib
+	url = https://github.com/addthis/stream-lib

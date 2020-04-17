@@ -178,21 +178,19 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.0</version>
-                <configuration>
-                    <forkCount>1</forkCount>
-                    <reuseForks>false</reuseForks>
-                    <argLine>-javaagent:F:\Spring_2020\CS_6367_Lectures\project\CS6367Project\agent\target\agent-0.1-SNAPSHOT.jar=spark\</argLine>
-                    <properties>
-                        <property>
-                            <name>listener</name>
-                            <value>agent.CommonListener</value>
-                        </property>
-                  </properties>
-                </configuration>
-            </plugin>
+	      <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-surefire-plugin</artifactId>
+              <version>3.0.0-M4</version>
+              <configuration>
+		<argLine>-javaagent:/home/kisamefishfry/Documents/CS6367Project/traceAgent/target/TraceAgent-0.1-SNAPSHOT.jar=test/</argLine>
+		<properties>
+		  <property>
+		    <name>listener</name>
+		    <value>traceAgent.TraceRunListener</value>
+		  </property>
+		</properties>
+              </configuration>
+	    </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>

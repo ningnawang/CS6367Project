@@ -1,7 +1,8 @@
 package test;
 
 public class Stuff {
-    public void print() {
-        System.out.println("I AM DOING SOME STUFF...");
+    public void print(int x) {
+        System.out.println(x);
+	x++;
     }
 }

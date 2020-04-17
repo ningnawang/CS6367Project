@@ -6,14 +6,16 @@ import org.junit.Test;
 /**
  * Unit test for simple App.
  */
-public class AppTest  {
+public class AppTest  {   
     @Test
     public void process() {
-    	assertTrue(true);
+        Stuff s = new Stuff();
+	s.print(5);
     }
 
     @Test
     public void compute() {
-    	assertTrue(true);
+        Stuff s = new Stuff();
+	s.print(4);
     }
 }

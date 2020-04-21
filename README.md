@@ -64,20 +64,22 @@ $ mvn test
 ```
 
 ### For running forked test
+```
 $ mvn -T 6 surefire:test
+```
 
-##Phase 2
-```
-How to build
-```
+## Phase 2
+
+### How to build
 From root directory:
+```
 $cd traceAgent
 $mvn clean package
+```
+### How to run
+Just like for running the statement listener, add the following plugin to the pom.xml of the project you want to trace invariants for:
 
 ```
-How to run
-```
-Just like for running the statement listener, add the following plugin to the pom.xml of the project you want to trace invariants for:
 <plugin>
 <groupId>org.apache.maven.plugins</groupId>
 <artifactId>maven-surefire-plugin</artifactId>
@@ -92,6 +94,8 @@ Just like for running the statement listener, add the following plugin to the po
   </properties>
 </configuration>
 </plugin>
-
+```
 Then, go to the root of the project directory and run:
+```
 $mvn clean test
+```

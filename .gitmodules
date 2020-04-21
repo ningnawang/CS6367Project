@@ -12,19 +12,19 @@
    url = https://github.com/perwendel/spark
 [submodule "sampleProjects/commons-codec"]
    path = sampleProjects/commons-code
-   url = "https://github.com/apache/commons-codec"
+   url = https://github.com/apache/commons-codec
 [submodule "sampleProjects/Bukkit"]
    path = sampleProjects/Bukkit
-   url = "https://github.com/Bukkit/Bukkit"
+   url = https://github.com/Bukkit/Bukkit
 [submodule "sampleProjects/druid"]
    path = sampleProjects/druid
-   url = "https://github.com/alibaba/druid"
+   url = https://github.com/alibaba/druid
 [submodule "sampleProjects/javapoet"]
    path = sampleProjects/javapoet
-   url = "https://github.com/square/javapoet"
+   url = https://github.com/square/javapoet
 [submodule "sampleProjects/OpenTripPlanner"]
    path = sampleProjects/OpenTripPlanner
-   url = "https://github.com/opentripplanner/OpenTripPlanner"
+   url = https://github.com/opentripplanner/OpenTripPlanner
 [submodule "sampleProjects/stream-lib"]
    path = sampleProjects/stream-lib
-   url = "https://github.com/addthis/stream-lib"
+   url = https://github.com/addthis/stream-lib

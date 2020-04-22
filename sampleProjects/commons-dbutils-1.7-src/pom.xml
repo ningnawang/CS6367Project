@@ -250,13 +250,13 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.22.1</version>
+        <version>3.0.0-M4</version>
           <configuration>
-            <argLine>-javaagent:/home/alakhaggarwal/CS6367Project/agent/target/agent-0.1-SNAPSHOT.jar=org/apache/commons/dbutils/</argLine>
+            <argLine>-javaagent:/home/kisamefishfry/Documents/CS6367Project/traceAgent/target/TraceAgent-0.1-SNAPSHOT.jar=org/apache/commons/dbutils/</argLine>
             <properties>
             <property>
               <name>listener</name>
-              <value>agent.CommonListener</value>
+              <value>traceAgent.TraceRunListener</value>
             </property>
             </properties>
             <excludes>
@@ -333,18 +333,6 @@
             <ruleset>${basedir}/pmd-ruleset.xml</ruleset>
           </rulesets>
         </configuration>
-      </plugin>
-      <plugin>
-	<groupId>org.apache.maven.plugins</groupId>                                                                                                                                         <artifactId>maven-surefire-plugin</artifactId>
-	<version>2.22.1</version>
-	<configuration>
-	  <argLine>-javaagent:/home/kisamefishfry/Documents/CS6367Project/agent/target/agent-0.1-SNAPSHOT.jar=commons-dbutils-1.7-src</argLine>                                                                <properties>
-	  <property>
-	    <name>listener</name>
-	    <value>agent.CommonListener</value>
-	  </property>
-	</properties>
-	</configuration>
       </plugin>
     </plugins>
   </reporting>

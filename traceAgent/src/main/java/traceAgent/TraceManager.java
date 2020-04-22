@@ -134,12 +134,12 @@ public class TraceManager {
 
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
             StringBuilder sb = new StringBuilder();
-            sb.append("[");
-            int i;;
+            //sb.append("[");
+            int i;
             for (i = 0; i < entries.size() - 1; i++) 
                 if (entries.get(i) != null)
-                    sb.append(objectMapper.writeValueAsString(entries.get(i))).append(",");
-	    sb.append(objectMapper.writeValueAsString(entries.get(i))).append("]");
+                    sb.append(entries.get(i).toString());
+	    //sb.append(objectMapper.writeValueAsString(entries.get(i))).append("]");
             bw.write(sb.toString());
             bw.close();
         }

@@ -26,7 +26,7 @@ public class TraceRunListener extends RunListener {
     public void testStarted(Description description) throws Exception
     {
         super.testStarted(description);
-        String caseName = "[TEST] " + description.getClassName() + ":" + description.getMethodName();
+        String caseName = description.getClassName() + ":" + description.getMethodName();
         manager.addCase(caseName);
     }
 }

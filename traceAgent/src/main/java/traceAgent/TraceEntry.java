@@ -248,6 +248,21 @@ public class TraceEntry implements Serializable
     @Override
     public String toString()
     {
+	String output = "";
+	output += "Token: " + token + "\n";
+	output += "\tClass: " + className + "\n";
+	output += "\tMethod: " + methodName + "\n";
+	output += "\tTest: " + testCase + "\n";
+	output += "\t\tVariable: " + varName + "\n";
+	output += "\t\t\tType: " + varType + "\n";
+	output += "\t\t\tValue: " + varValue + "\n";
+	output += "\t\t\tisParameter?: " + parameter + "\n";
+	output += "\t\t\twasDerived?: " + derived + "\n";
+	
+	System.out.println(output);
+	return output;
+	/*
+
         return new StringBuilder().append("{").append("\"token\":\"").append(token).append("\",")
                 .append("\"className\":\"").append(className).append("\",")
                 .append("\"methodName\":\"").append(methodName).append("\",")
@@ -258,6 +273,7 @@ public class TraceEntry implements Serializable
                 .append("\"parameter\":").append(parameter).append(",")
                 .append("\"derived\":").append(derived).append(",")
                 .append("\"hashcode\":").append(hashcode).append("}").toString();
+	//*/
     }
 
     @Override

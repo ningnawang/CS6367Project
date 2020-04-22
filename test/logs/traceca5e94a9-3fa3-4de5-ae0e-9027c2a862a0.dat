@@ -1,0 +1,9 @@
+Token: f53fdbf0-555e-4f4f-b4cd-c7f5daf622da
+	Class: test.Stuff
+	Method: print
+	Test: test.AppTest:process
+		Variable: x
+			Type: int
+			Value: 5
+			isParameter?: true
+			wasDerived?: false

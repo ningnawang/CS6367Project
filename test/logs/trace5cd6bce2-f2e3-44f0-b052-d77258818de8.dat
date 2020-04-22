@@ -1,0 +1,9 @@
+Token: e27dafaf-567f-48ac-b3d5-cff060f760bc
+	Class: test.Stuff
+	Method: print
+	Test: [TEST] test.AppTest:process
+		Variable: x
+			Value: 5
+			Parameter?: true
+			Derived?: false
+			HashCode: 0

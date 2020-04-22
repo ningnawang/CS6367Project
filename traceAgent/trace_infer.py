@@ -2,60 +2,81 @@
 import sys
 import json
 import glob
+import re
+import os
 
 class Var:
-    def __init__(self, var_name, var_type):
-        self.var_name = var_name
-        self.var_type = var_type
-
-    def __hash__(self):
-        return hash(self.var_name + self.var_type)
-
+    def __init__(self, n):
+        self.name = n
+        self.values = []
+        
     def __eq__(self, other):
-        return self.var_name == other.var_name and self.var_type  ==  other.var_type
+        if  isinstance(other,Var):
+            return self.name == other.name
+        elif isinstance(other,str):
+            return other == self.name
+        else:
+            return False
 
-    def get_name(self):
-        return self.var_name
+    def getName(self):
+        return self.name
 
-    def get_type(self):
-        return self.var_type
+    def setType(self, t):
+        self._type = t
+
+    def getType(self):
+        return self._type
+
+    def isIn(self, v):
+        return v in self.values
+
+    def add(self, v):
+        if self.isInteger():
+            v = int(v)
+        elif self.isDecimal():
+            v = float(v)
+        if v not in self.values:
+            self.values.append(v)
+
+    def getValues(self):
+        return self.values
 
     def isNumeric(self):
-        return self.var_type in ('short', 'int', 'long', 'float', 'double')
+        return self._type in ('short', 'int', 'long', 'float', 'double')
 
-def read_trace():
-    datastore = []
-    for dat in glob.glob('*.dat'):
+    def isInteger(self):
+        return self._type in ('short', 'int', 'long')
+    
+    def isDecimal(self):
+        return self._type in ('float', 'double')
 
-        try:
-            f = open(dat, 'r')
-            datastore.append(json.load(f))
-        except:
-            pass
-
+def read_trace(location):
     traces = {}
-    for trace_dat in datastore:
-        for data in trace_dat:
-            if data['className'] in traces.keys():
-                class_dict = traces[data['className']]
-            else:
-                class_dict = {}
-                traces[data['className']] = class_dict
-
-            if data['methodName'] in class_dict.keys():
-                method_dict = class_dict[data['methodName']]
-            else:
-                method_dict = {}
-                class_dict[data['methodName']] = method_dict
-
-            var = Var(data['varName'], data['varType'])
-
-            if var in method_dict.keys():
-                value_list = method_dict[var]
-            else:
-                value_list = []
-                method_dict[var] = value_list
-            value_list.append(detect_type(var, data['varValue']))
+    rootDir = os.getcwd()
+    log = rootDir + "/" + location
+    for files in os.listdir(log):
+        if files.endswith('.dat'):
+            f = open(log + files, "r")
+            for line in f:
+                l = re.sub(r"\s+","", line).split(':')
+                if l[0] == 'Class':
+                    if l[1] not in traces.keys():
+                        traces[l[1]] = {}
+                    curClass = traces[l[1]]
+                elif l[0] == 'Method':
+                    if l[1] not in curClass.keys():
+                        curClass[l[1]] = []
+                    curMethod = curClass[l[1]]
+                elif l[0] == 'Variable':
+                    if l[1] not in curMethod:
+                        curMethod.append(Var(l[1]))
+                        curVar = len(curMethod) - 1
+                    else:
+                        curVar = curMethod.index(l[1])
+                elif l[0] == 'Type':
+                    curMethod[curVar].setType(l[1])
+                elif l[0] == 'Value':
+                    curMethod[curVar].add(l[1])
     return traces
 
 def verify_type(var):
@@ -75,65 +96,64 @@ def detect_type(var, value):
 
 def detect_invariant(traces):
     invariants = {}
-    for className, class_dict in traces.items():
-        class_map = {}
-        invariants[className] = class_map
-        for methodName, method_dict in class_dict.items():
-            method_list = []
-            for var, value_list in method_dict.items():
+    for className, c in traces.items():
+        classMap = {}
+        invariants[className] = classMap
+        for methodName, m in c.items():
+            methodList = []
+            for v in m:
                 
-                max_value = value_list[0]
-                min_value = value_list[0]
-                a = value_list[0]
+                maxValue = v.getValues()[0]
+                minValue = v.getValues()[0]
+                a = v.getValues()[0]
 
                 # Constant Value: x = a
-                p1 = var.get_type() != 'other'
+                p1 = v.getType() != 'other'
                 # Uninitialized Value: x = uninit
-                p2 = var.get_type() == 'other'
+                p2 = v.getType() == 'other'
                 # Small Value Set: x ∈ {a,b,c}
-                p3 = var.get_type() != 'other'
+                p3 = v.getType() != 'other'
                 # Non-zero: x != 0
-                p4 = var.isNumeric()
-                value_set = set()
+                p4 = v.isNumeric()
+                valueSet = set()
 
-                for value in value_list:
+                for value in v.getValues():
                     if p1:
                         p1 = value == a
                     if p2:
                         p2 = value == 'null'
                     if p3:
-                        value_set.add(value)
-                        p3 = len(value_set) <= 3
-
-                    if var.isNumeric():
-                        max_value = max(max_value, value)
-                        min_value = min(min_value, value)
+                        v.add(value)
+                        p3 = len(valueSet) <= 3
+                    if v.isNumeric():
+                        maxValue = max(maxValue, value)
+                        minValue = min(minValue, value)
 
                         if p4:
                             p4 = value != 0
 
                 if p3:
-                    p3 = len(value_set) != 1
+                    p3 = len(valueSet) != 1
                 if p1:
-                    method_list.append('Constant Value: %s = %s' % (var.get_name(), str(a)))
+                    methodList.append('Constant Value: %s = %s' % (v.getName(), str(a)))
                 if p2:
-                    method_list.append('Uninitialized Value: %s = uninit' % (var.get_name()))
+                    methodList.append('Uninitialized Value: %s = uninit' % (v.getName()))
                 if p3:
-                    method_list.append('Small Value Set: %s ∈ {%s}' % (var.get_name(), ','.join(str(v) for v in value_set)))
+                    methodList.append('Small Value Set: %s ∈ {%s}' % (v.getName(), ','.join(str(v) for v in valueSet)))
                 if p4:
-                    method_list.append('Non-zero: %s != 0' % (var.get_name()))
-                if var.isNumeric():
-                    method_list.append('Range: %s ∈ [%s, %s]' % (var.get_name(), str(min_value), str(max_value)))
+                    methodList.append('Non-zero: %s != 0' % (v.getName()))
+                if v.isNumeric():
+                    methodList.append('Range: %s ∈ [%s, %s]' % (v.getName(), str(minValue), str(maxValue)))
 
-                if var.get_type() == 'int' and not p1:
-                    upper = max(max_value, abs(min_value))
+                if v.getType() == 'int' and not p1:
+                    upper = max(maxValue, abs(minValue))
                     for b in (2, 3, 5, 7, 11, 13, 17, 19):
                         if b > upper:
                             break
                         p5 = True
                         p6 = True
-                        a = value_list[0] % b
-                        for value in value_list:
+                        a = v.getValues()[0] % b
+                        for value in v.getValues():
                             if not p5 and not p6:
                                 break
                             remainder = value % b
@@ -142,12 +162,12 @@ def detect_invariant(traces):
                             if p6:
                                 p6 = remainder != 0
                         if p5:
-                            method_list.append('Modulus: %s = %d (mod %d)' % (var.get_name(), a, b))
+                            methodList.append('Modulus: %s = %d (mod %d)' % (v.getName(), a, b))
                         if p6:
-                            method_list.append('Non-modulus: %s != 0 (mod %d)' % (var.get_name(), b))
+                            methodList.append('Non-modulus: %s != 0 (mod %d)' % (v.getName(), b))
 
-                if method_list:
-                    class_map[methodName] = method_list
+                if methodList:
+                    classMap[methodName] = methodList
     return invariants
 
 def dump_invariants(invariants):
@@ -166,8 +186,11 @@ def dump_invariants(invariants):
 if __name__ == "__main__":
     reload(sys)
     sys.setdefaultencoding('utf-8')
-    print "reading traces"
-    traces = read_trace()
-    print "detecting invariants"
-    invariants = detect_invariant(traces)
-    dump_invariants(invariants)
+    if len(sys.argv) != 2:
+        print "improper input!\ninput should be script then log directory"
+    else:
+        print "reading traces"
+        traces = read_trace(sys.argv[1])
+        print "detecting invariants"
+        invariants = detect_invariant(traces)
+        dump_invariants(invariants)

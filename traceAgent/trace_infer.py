@@ -187,7 +187,7 @@ if __name__ == "__main__":
     reload(sys)
     sys.setdefaultencoding('utf-8')
     if len(sys.argv) != 2:
-        print "improper input!\ninput should be script then log directory"
+        print "improper input!\ninput should be script then log directory\nex: python trace_infer.py ../test/logs/"
     else:
         print "reading traces"
         traces = read_trace(sys.argv[1])

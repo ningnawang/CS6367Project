@@ -39,8 +39,6 @@ public class SCClassFileTransformer implements ClassFileTransformer {
             className.contains("au/com/ds/ef/") ||
             className.contains("spark/")) {
 
-            // method coverage map
-            Map<String, SortedSet<Integer>> mcm = new HashMap<String, SortedSet<Integer>>();
             // ASM Code
             ClassReader reader = new ClassReader(classfileBuffer);
             ClassWriter writer = new ClassWriter(reader, ClassWriter.COMPUTE_FRAMES);

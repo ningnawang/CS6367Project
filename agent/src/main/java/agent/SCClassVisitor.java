@@ -46,17 +46,6 @@ public class SCClassVisitor extends ClassVisitor implements Opcodes {
                 super.visitLineNumber(line, start);
             }
         }
-
-        // @Override
-        // public void visitLabel(Label arg0) {
-        //     if (0 != line) {
-        //         mv.visitLdcInsn(className);
-        //         mv.visitIntInsn(SIPUSH, this.line);
-        //         mv.visitMethodInsn(INVOKESTATIC, "agent/SCCollector", "visitLineStatic",
-        //                 "(Ljava/lang/String;I)V", false);
-        //         super.visitLabel(arg0);
-        //     }
-        // }
     }
 
 }

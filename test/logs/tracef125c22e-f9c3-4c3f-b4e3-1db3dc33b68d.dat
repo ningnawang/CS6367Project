@@ -1,9 +1,0 @@
-Token: a7331b70-64bd-4fd6-b126-24fe84ef8ffc
-	Class: test.Stuff
-	Method: print
-	Test: test.AppTest:process
-		Variable: x
-			Value: 5
-			Parameter?: true
-			Derived?: false
-			HashCode: 0

@@ -28,8 +28,8 @@ public class TraceManager {
     public static TraceManager getInstance()
     {
         if (instance == null)
-	    synchronized(TraceManager.class)
-		{
+	    synchronized(TraceManager.class) //avoid instance being changed between
+		{                            //threads
 		    if (instance == null)
 			instance = new TraceManager();   
 		}
@@ -89,7 +89,7 @@ public class TraceManager {
     {
         synchronized (entries)
 	    {
-		total += entries.size();
+		total += entries.size(); //entries = list of TraceEntries
 		queue.add(new ArrayList<>(entries));
 		entries.clear();
 	    }
@@ -134,12 +134,10 @@ public class TraceManager {
 
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
             StringBuilder sb = new StringBuilder();
-            //sb.append("[");
             int i;
             for (i = 0; i < entries.size() - 1; i++) 
                 if (entries.get(i) != null)
                     sb.append(entries.get(i).toString());
-	    //sb.append(objectMapper.writeValueAsString(entries.get(i))).append("]");
             bw.write(sb.toString());
             bw.close();
         }

@@ -19,14 +19,14 @@ public class TraceAgent
 
     public static void premain(String args, Instrumentation inst)
     {
-        HashSet<String> packages = getPackages();
-        String pack = shortestPackage(packages);
+        HashSet<String> packages = getPackages(); //get packages in project
+        String pack = shortestPackage(packages);  //get base package
         if (pack == null || pack.length() == 0)
             System.out.println("Unsable to read package name from pom.xml");
         else
 	    {
-            TraceManager.getInstance().setProgName(getPackge());
-            inst.addTransformer(new TraceClassTransformer(pack));
+		TraceManager.getInstance().setProgName(getPackge()); //Set the program name
+		inst.addTransformer(new TraceClassTransformer(pack)); //add the transformer
         }
     }
 

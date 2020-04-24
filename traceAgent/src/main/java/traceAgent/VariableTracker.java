@@ -11,21 +11,13 @@ import java.util.UUID;
 public class VariableTracker extends MethodVisitor implements Opcodes {
 
     private String methodName;
-
     private String className;
-
     private String rawClassName;
-
     private String methodDescriptor;
-
     private int access;
-
     private int counter;
-
     private boolean isStaticMethod;
-
     private String[] localVars;
-
     private FieldNode[] fields;
 
     public VariableTracker(final MethodVisitor mv, String mn, String md, String cn, int a, String[] lv, List<FieldNode> fs)
@@ -50,7 +42,7 @@ public class VariableTracker extends MethodVisitor implements Opcodes {
     @Override
     public void visitCode()
     {
-        if (fields != null) 
+        if (fields != null) //keep track of known field values (parameters)
             for (FieldNode field : fields)
                 addField(field);
 	
@@ -58,6 +50,7 @@ public class VariableTracker extends MethodVisitor implements Opcodes {
         int offset = isStaticMethod ? 0 : 1;
 
         String varName;
+	//add each local variable
         for (int i = 0; i < localVarTypes.length; i++)
 	    {
 		varName = localVars != null ? localVars[i + offset] : "varName";
@@ -156,7 +149,6 @@ public class VariableTracker extends MethodVisitor implements Opcodes {
                 + boolInternal
                 + boolInternal
                 + intInternal + ")V", false);
-
     }
 
     private void addLocalVariable(String desc, String varName, int index)

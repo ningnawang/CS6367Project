@@ -145,27 +145,6 @@ def detect_invariant(traces):
                 if v.isNumeric():
                     methodList.append('Range: %s ∈ [%s, %s]' % (v.getName(), str(minValue), str(maxValue)))
 
-                if v.getType() == 'int' and not p1:
-                    upper = max(maxValue, abs(minValue))
-                    for b in (2, 3, 5, 7, 11, 13, 17, 19):
-                        if b > upper:
-                            break
-                        p5 = True
-                        p6 = True
-                        a = v.getValues()[0] % b
-                        for value in v.getValues():
-                            if not p5 and not p6:
-                                break
-                            remainder = value % b
-                            if p5:
-                                p5 = remainder  == a
-                            if p6:
-                                p6 = remainder != 0
-                        if p5:
-                            methodList.append('Modulus: %s = %d (mod %d)' % (v.getName(), a, b))
-                        if p6:
-                            methodList.append('Non-modulus: %s != 0 (mod %d)' % (v.getName(), b))
-
                 if methodList:
                     classMap[methodName] = methodList
     return invariants

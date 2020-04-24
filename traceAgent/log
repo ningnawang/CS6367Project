@@ -4,6 +4,11 @@ CLASS: spark.Session
         Small Value Set: interval ∈ {}
         Non-zero: interval != 0
         Range: interval ∈ [200, 200]
+CLASS: spark.embeddedserver.EmbeddedServer$$EnhancerByMockitoWithCGLIB$$b4504f4a
+    METHOD: getCallback
+        Constant Value: varName = 0
+        Small Value Set: varName ∈ {}
+        Range: varName ∈ [0, 0]
 CLASS: spark.embeddedserver.jetty.websocket.WebSocketTestClient
     METHOD: awaitClose
         Constant Value: duration = 30
@@ -15,6 +20,15 @@ CLASS: spark.embeddedserver.jetty.websocket.WebSocketTestClient
         Small Value Set: statusCode ∈ {}
         Non-zero: statusCode != 0
         Range: statusCode ∈ [1006, 1006]
+CLASS: spark.embeddedserver.jetty.JettyServerFactory$$EnhancerByMockitoWithCGLIB$$ae97c162
+    METHOD: create
+        Small Value Set: varName ∈ {}
+        Non-zero: varName != 0
+        Range: varName ∈ [10, 10000]
+    METHOD: getCallback
+        Constant Value: varName = 0
+        Small Value Set: varName ∈ {}
+        Range: varName ∈ [0, 0]
 CLASS: spark.embeddedserver.EmbeddedServers
     METHOD: create
         Small Value Set: multipleHandlers ∈ {}
@@ -26,18 +40,11 @@ CLASS: spark.utils.urldecoding.UrlDecode
         Small Value Set: length ∈ {}
         Non-zero: length != 0
         Range: length ∈ [3, 55]
-        Non-modulus: length != 0 (mod 13)
-        Non-modulus: length != 0 (mod 17)
-        Non-modulus: length != 0 (mod 19)
 CLASS: spark.utils.urldecoding.Utf8StringBuilder
     METHOD: <init>
         Small Value Set: capacity ∈ {}
         Non-zero: capacity != 0
         Range: capacity ∈ [7, 33]
-        Non-modulus: capacity != 0 (mod 5)
-        Non-modulus: capacity != 0 (mod 13)
-        Non-modulus: capacity != 0 (mod 17)
-        Non-modulus: capacity != 0 (mod 19)
 CLASS: spark.embeddedserver.jetty.EmbeddedJettyServer
     METHOD: ignite
         Small Value Set: port ∈ {}
@@ -64,16 +71,6 @@ CLASS: spark.BooksIntegrationTest$UrlResponse
         Small Value Set: x1 ∈ {}
         Non-zero: x1 != 0
         Range: x1 ∈ [200, 201]
-        Non-modulus: x1 != 0 (mod 7)
-        Non-modulus: x1 != 0 (mod 11)
-        Non-modulus: x1 != 0 (mod 13)
-        Non-modulus: x1 != 0 (mod 17)
-        Non-modulus: x1 != 0 (mod 19)
-CLASS: spark.embeddedserver.EmbeddedServer$$EnhancerByMockitoWithCGLIB$$ba44ae1d
-    METHOD: getCallback
-        Constant Value: varName = 0
-        Small Value Set: varName ∈ {}
-        Range: varName ∈ [0, 0]
 CLASS: spark.HaltException
     METHOD: field
         Constant Value: serialVersionUID = 1
@@ -88,25 +85,11 @@ CLASS: spark.HaltException
         Small Value Set: statusCode ∈ {}
         Non-zero: statusCode != 0
         Range: statusCode ∈ [401, 404]
-        Modulus: statusCode = 2 (mod 3)
-        Non-modulus: statusCode != 0 (mod 3)
-        Non-modulus: statusCode != 0 (mod 5)
-        Non-modulus: statusCode != 0 (mod 7)
-        Non-modulus: statusCode != 0 (mod 11)
-        Non-modulus: statusCode != 0 (mod 13)
-        Non-modulus: statusCode != 0 (mod 17)
-        Non-modulus: statusCode != 0 (mod 19)
 CLASS: spark.ResponseTest
     METHOD: validateCookieContent
         Small Value Set: maxAge ∈ {}
         Non-zero: maxAge != 0
         Range: maxAge ∈ [-1, 86400]
-        Modulus: maxAge = 6 (mod 7)
-        Non-modulus: maxAge != 0 (mod 7)
-        Non-modulus: maxAge != 0 (mod 11)
-        Non-modulus: maxAge != 0 (mod 13)
-        Non-modulus: maxAge != 0 (mod 17)
-        Non-modulus: maxAge != 0 (mod 19)
         Small Value Set: secured ∈ {}
         Small Value Set: httpOnly ∈ {}
 CLASS: spark.examples.exception.JWGmeligMeylingException
@@ -126,25 +109,14 @@ CLASS: spark.embeddedserver.jetty.SocketConnectorFactory
         Small Value Set: port ∈ {}
         Non-zero: port != 0
         Range: port ∈ [1234, 2147483647]
-        Non-modulus: port != 0 (mod 13)
-        Non-modulus: port != 0 (mod 17)
-        Non-modulus: port != 0 (mod 19)
     METHOD: createSocketConnector
         Small Value Set: port ∈ {}
         Non-zero: port != 0
         Range: port ∈ [80, 2147483647]
-        Non-modulus: port != 0 (mod 13)
-        Non-modulus: port != 0 (mod 17)
-        Non-modulus: port != 0 (mod 19)
     METHOD: createSecureSocketConnector
         Small Value Set: port ∈ {}
         Non-zero: port != 0
         Range: port ∈ [80, 8888]
-        Non-modulus: port != 0 (mod 3)
-        Non-modulus: port != 0 (mod 7)
-        Non-modulus: port != 0 (mod 13)
-        Non-modulus: port != 0 (mod 17)
-        Non-modulus: port != 0 (mod 19)
 CLASS: spark.embeddedserver.jetty.EmbeddedJettyFactory
     METHOD: field
         Small Value Set: httpOnly ∈ {}
@@ -169,73 +141,23 @@ CLASS: spark.ssl.SslStores
     METHOD: <init>
         Constant Value: needsClientCert = false
         Small Value Set: needsClientCert ∈ {}
-CLASS: spark.embeddedserver.jetty.JettyServerFactory$$EnhancerByMockitoWithCGLIB$$c62a8623
-    METHOD: create
-        Small Value Set: varName ∈ {}
-        Non-zero: varName != 0
-        Range: varName ∈ [10, 10000]
-        Modulus: varName = 0 (mod 2)
-        Modulus: varName = 1 (mod 3)
-        Non-modulus: varName != 0 (mod 3)
-        Modulus: varName = 0 (mod 5)
-        Non-modulus: varName != 0 (mod 7)
-        Non-modulus: varName != 0 (mod 11)
-        Non-modulus: varName != 0 (mod 13)
-        Non-modulus: varName != 0 (mod 17)
-        Non-modulus: varName != 0 (mod 19)
-    METHOD: getCallback
-        Constant Value: varName = 0
-        Small Value Set: varName ∈ {}
-        Range: varName ∈ [0, 0]
 CLASS: spark.CustomErrorPages
     METHOD: getDefaultFor
         Small Value Set: status ∈ {}
         Non-zero: status != 0
         Range: status ∈ [404, 500]
-        Modulus: status = 0 (mod 2)
-        Modulus: status = 2 (mod 3)
-        Non-modulus: status != 0 (mod 3)
-        Non-modulus: status != 0 (mod 7)
-        Non-modulus: status != 0 (mod 11)
-        Non-modulus: status != 0 (mod 13)
-        Non-modulus: status != 0 (mod 17)
-        Non-modulus: status != 0 (mod 19)
     METHOD: add
         Small Value Set: status ∈ {}
         Non-zero: status != 0
         Range: status ∈ [404, 500]
-        Modulus: status = 0 (mod 2)
-        Modulus: status = 2 (mod 3)
-        Non-modulus: status != 0 (mod 3)
-        Non-modulus: status != 0 (mod 7)
-        Non-modulus: status != 0 (mod 11)
-        Non-modulus: status != 0 (mod 13)
-        Non-modulus: status != 0 (mod 17)
-        Non-modulus: status != 0 (mod 19)
     METHOD: existsFor
         Small Value Set: status ∈ {}
         Non-zero: status != 0
         Range: status ∈ [404, 500]
-        Modulus: status = 0 (mod 2)
-        Modulus: status = 2 (mod 3)
-        Non-modulus: status != 0 (mod 3)
-        Non-modulus: status != 0 (mod 7)
-        Non-modulus: status != 0 (mod 11)
-        Non-modulus: status != 0 (mod 13)
-        Non-modulus: status != 0 (mod 17)
-        Non-modulus: status != 0 (mod 19)
     METHOD: getFor
         Small Value Set: status ∈ {}
         Non-zero: status != 0
         Range: status ∈ [404, 500]
-        Modulus: status = 0 (mod 2)
-        Modulus: status = 2 (mod 3)
-        Non-modulus: status != 0 (mod 3)
-        Non-modulus: status != 0 (mod 7)
-        Non-modulus: status != 0 (mod 11)
-        Non-modulus: status != 0 (mod 13)
-        Non-modulus: status != 0 (mod 17)
-        Non-modulus: status != 0 (mod 19)
 CLASS: spark.BooksIntegrationTest
     METHOD: field
         Constant Value: PORT = 4567
@@ -259,14 +181,7 @@ CLASS: spark.utils.GzipUtils
         Small Value Set: wantsGzip ∈ {}
     METHOD: checkAndWrap
         Small Value Set: requireWantsHeader ∈ {}
-CLASS: spark.http.matching.MatcherFilter
-    METHOD: field
-        Small Value Set: externalContainer ∈ {}
-        Small Value Set: hasOtherHandlers ∈ {}
-    METHOD: <init>
-        Small Value Set: externalContainer ∈ {}
-        Small Value Set: hasOtherHandlers ∈ {}
-CLASS: spark.embeddedserver.jetty.JettyServerFactory$$EnhancerByMockitoWithCGLIB$$3569f6ba
+CLASS: spark.embeddedserver.jetty.JettyServerFactory$$EnhancerByMockitoWithCGLIB$$594cfe7b
     METHOD: create
         Constant Value: varName = 0
         Small Value Set: varName ∈ {}
@@ -275,6 +190,13 @@ CLASS: spark.embeddedserver.jetty.JettyServerFactory$$EnhancerByMockitoWithCGLIB
         Constant Value: varName = 0
         Small Value Set: varName ∈ {}
         Range: varName ∈ [0, 0]
+CLASS: spark.http.matching.MatcherFilter
+    METHOD: field
+        Small Value Set: externalContainer ∈ {}
+        Small Value Set: hasOtherHandlers ∈ {}
+    METHOD: <init>
+        Small Value Set: externalContainer ∈ {}
+        Small Value Set: hasOtherHandlers ∈ {}
 CLASS: spark.servlet.ServletTest
     METHOD: field
         Constant Value: PORT = 9393

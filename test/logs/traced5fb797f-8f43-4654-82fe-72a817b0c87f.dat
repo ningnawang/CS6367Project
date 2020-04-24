@@ -1,9 +1,0 @@
-Token: 272d4f5d-085a-46bf-9a3c-507330dbcbce
-	Class: test.Stuff
-	Method: print
-	Test: test.AppTest:process
-		Variable: x
-			Type: int
-			Value: 5
-			Parameter?: true
-			Derived?: false

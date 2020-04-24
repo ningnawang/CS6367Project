@@ -1,49 +1,22 @@
 package traceAgent;
 
-import java.io.Serializable;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-        "token",
-        "className",
-        "methodName",
-        "testCase",
-        "varName",
-        "varValue",
-        "varType",
-        "parameter",
-        "derived",
-        "hashcode"
-})
-public class TraceEntry implements Serializable
+public class TraceEntry
 {
 
-    @JsonProperty("token")
-    private String token;
-    @JsonProperty("className")
-    private String className;
-    @JsonProperty("methodName")
-    private String methodName;
-    @JsonProperty("testCase")
-    private String testCase;
-    @JsonProperty("varName")
-    private String varName;
-    @JsonProperty("varValue")
-    private String varValue;
-    @JsonProperty("varType")
-    private String varType;
-    @JsonProperty("parameter")
-    private boolean parameter;
-    @JsonProperty("derived")
-    private boolean derived;
-    @JsonProperty("hashcode")
-    private long hashcode;
+    private String token; //unique identifier
+    private String className; //name of containing class
+    private String methodName; //name of containing method
+    private String testCase; //which test case this occured in
+    private String varName; //name of the variable
+    private String varValue; //value of the variable
+    private String varType; //data type
+    private boolean parameter; //was it a parameter
+    private boolean derived; //was it derived
+    private long hashcode; //hashcode value
     private final static long serialVersionUID = 4625025418890774682L;
 
     public TraceEntry()
@@ -52,7 +25,6 @@ public class TraceEntry implements Serializable
     public TraceEntry(String t, String cn, String mn, String tc, String vn,
 		      String vv, String vt, boolean p, boolean d, long hc)
     {
-        super();
         token = t;
         className = cn;
         methodName = mn;
@@ -65,13 +37,11 @@ public class TraceEntry implements Serializable
         hashcode = hc;
     }
 
-    @JsonProperty("token")
     public String getToken()
     {
         return token;
     }
 
-    @JsonProperty("token")
     public void setToken(String t)
     {
         token = t;
@@ -83,13 +53,11 @@ public class TraceEntry implements Serializable
         return this;
     }
 
-    @JsonProperty("className")
     public String getClassName()
     {
         return className;
     }
 
-    @JsonProperty("className")
     public void setClassName(String cn)
     {
         className = cn;
@@ -101,13 +69,11 @@ public class TraceEntry implements Serializable
         return this;
     }
 
-    @JsonProperty("methodName")
     public String getMethodName()
     {
         return methodName;
     }
 
-    @JsonProperty("methodName")
     public void setMethodName(String mn)
     {
         methodName = mn;
@@ -119,13 +85,11 @@ public class TraceEntry implements Serializable
         return this;
     }
 
-    @JsonProperty("testCase")
     public String getTestCase()
     {
         return testCase;
     }
 
-    @JsonProperty("testCase")
     public void setTestCase(String tc)
     {
         testCase = tc;
@@ -137,13 +101,11 @@ public class TraceEntry implements Serializable
         return this;
     }
 
-    @JsonProperty("varName")
     public String getVarName()
     {
         return varName;
     }
 
-    @JsonProperty("varName")
     public void setVarName(String vn)
     {
         varName = vn;
@@ -155,13 +117,11 @@ public class TraceEntry implements Serializable
         return this;
     }
 
-    @JsonProperty("varValue")
     public String getVarValue()
     {
         return varValue;
     }
 
-    @JsonProperty("varValue")
     public void setVarValue(String vv)
     {
         varValue = vv;
@@ -173,13 +133,11 @@ public class TraceEntry implements Serializable
         return this;
     }
 
-    @JsonProperty("varType")
     public String getVarType()
     {
         return varType;
     }
 
-    @JsonProperty("varType")
     public void setVarType(String vt)
     {
         varType = vt;
@@ -191,13 +149,11 @@ public class TraceEntry implements Serializable
         return this;
     }
 
-    @JsonProperty("parameter")
     public boolean isParameter()
     {
         return parameter;
     }
 
-    @JsonProperty("parameter")
     public void setParameter(boolean p)
     {
         parameter = p;
@@ -209,13 +165,11 @@ public class TraceEntry implements Serializable
         return this;
     }
 
-    @JsonProperty("derived")
     public boolean isDerived()
     {
         return derived;
     }
 
-    @JsonProperty("derived")
     public void setDerived(boolean d)
     {
         derived = d;
@@ -227,13 +181,11 @@ public class TraceEntry implements Serializable
         return this;
     }
 
-    @JsonProperty("hashcode")
     public long getHashcode()
     {
         return hashcode;
     }
 
-    @JsonProperty("hashcode")
     public void setHashcode(long hc)
     {
         hashcode = hc;
@@ -259,21 +211,8 @@ public class TraceEntry implements Serializable
 	output += "\t\t\tisParameter?: " + parameter + "\n";
 	output += "\t\t\twasDerived?: " + derived + "\n";
 	
-	System.out.println(output);
+	//	System.out.println(output);
 	return output;
-	/*
-
-        return new StringBuilder().append("{").append("\"token\":\"").append(token).append("\",")
-                .append("\"className\":\"").append(className).append("\",")
-                .append("\"methodName\":\"").append(methodName).append("\",")
-                .append("\"testCase\":\"").append(testCase).append("\",")
-                .append("\"varName\":\"").append(varName).append("\",")
-                .append("\"varValue\":\"").append(varValue).append("\",")
-                .append("\"varType\":\"").append(varType).append("\",")
-                .append("\"parameter\":").append(parameter).append(",")
-                .append("\"derived\":").append(derived).append(",")
-                .append("\"hashcode\":").append(hashcode).append("}").toString();
-	//*/
     }
 
     @Override

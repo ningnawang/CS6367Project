@@ -1,0 +1,171 @@
+Token: 4e5d35d3-4c6b-4aab-a050-d2c714ddad69
+	Class: org.apache.commons.dbutils.BaseTestCase
+	Method: field
+	Test: org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest:testGetObject
+		Variable: ROWS
+			Type: int
+			Value: 2
+			isParameter?: false
+			wasDerived?: false
+Token: f529920b-a4ee-41fa-a43a-d036f2108b72
+	Class: org.apache.commons.dbutils.MockResultSet
+	Method: getObject
+	Test: org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest:testGetObject
+		Variable: columnIndex
+			Type: int
+			Value: 4
+			isParameter?: true
+			wasDerived?: false
+Token: 6a39cfec-8f7e-4f8f-9030-9b550e32c204
+	Class: org.apache.commons.dbutils.BaseTestCase
+	Method: field
+	Test: org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest:testGetString
+		Variable: COLS
+			Type: int
+			Value: 10
+			isParameter?: false
+			wasDerived?: false
+Token: 8f071c57-5505-432a-8bb2-7be84dd80a2a
+	Class: org.apache.commons.dbutils.BaseTestCase
+	Method: field
+	Test: org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest:testGetString
+		Variable: ROWS
+			Type: int
+			Value: 2
+			isParameter?: false
+			wasDerived?: false
+Token: dd55f53c-e241-4140-aebc-4add115d0dbb
+	Class: org.apache.commons.dbutils.BaseTestCase
+	Method: field
+	Test: org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest:testGetString
+		Variable: COLS
+			Type: int
+			Value: 10
+			isParameter?: false
+			wasDerived?: false
+Token: 4e5d35d3-4c6b-4aab-a050-d2c714ddad69
+	Class: org.apache.commons.dbutils.BaseTestCase
+	Method: field
+	Test: org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest:testGetString
+		Variable: ROWS
+			Type: int
+			Value: 2
+			isParameter?: false
+			wasDerived?: false
+Token: 8272a705-050e-4d5f-b2f0-39af4d081d8e
+	Class: org.apache.commons.dbutils.MockResultSet
+	Method: getString
+	Test: org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest:testGetString
+		Variable: columnIndex
+			Type: int
+			Value: 4
+			isParameter?: true
+			wasDerived?: false
+Token: f529920b-a4ee-41fa-a43a-d036f2108b72
+	Class: org.apache.commons.dbutils.MockResultSet
+	Method: getObject
+	Test: org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest:testGetString
+		Variable: columnIndex
+			Type: int
+			Value: 4
+			isParameter?: true
+			wasDerived?: false
+Token: 6a39cfec-8f7e-4f8f-9030-9b550e32c204
+	Class: org.apache.commons.dbutils.BaseTestCase
+	Method: field
+	Test: org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest:testResultSets
+		Variable: COLS
+			Type: int
+			Value: 10
+			isParameter?: false
+			wasDerived?: false
+Token: 8f071c57-5505-432a-8bb2-7be84dd80a2a
+	Class: org.apache.commons.dbutils.BaseTestCase
+	Method: field
+	Test: org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest:testResultSets
+		Variable: ROWS
+			Type: int
+			Value: 2
+			isParameter?: false
+			wasDerived?: false
+Token: dd55f53c-e241-4140-aebc-4add115d0dbb
+	Class: org.apache.commons.dbutils.BaseTestCase
+	Method: field
+	Test: org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest:testResultSets
+		Variable: COLS
+			Type: int
+			Value: 10
+			isParameter?: false
+			wasDerived?: false
+Token: 4e5d35d3-4c6b-4aab-a050-d2c714ddad69
+	Class: org.apache.commons.dbutils.BaseTestCase
+	Method: field
+	Test: org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest:testResultSets
+		Variable: ROWS
+			Type: int
+			Value: 2
+			isParameter?: false
+			wasDerived?: false
+Token: b541d646-a7c3-4f1c-947b-3aaed6072b56
+	Class: org.apache.commons.dbutils.BaseTestCase
+	Method: field
+	Test: org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest:testResultSets
+		Variable: COLS
+			Type: int
+			Value: 10
+			isParameter?: false
+			wasDerived?: false
+Token: c81041f4-41fb-45dd-a47e-e944c7418802
+	Class: org.apache.commons.dbutils.BaseTestCase
+	Method: field
+	Test: org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest:testResultSets
+		Variable: ROWS
+			Type: int
+			Value: 2
+			isParameter?: false
+			wasDerived?: false
+Token: 6a39cfec-8f7e-4f8f-9030-9b550e32c204
+	Class: org.apache.commons.dbutils.BaseTestCase
+	Method: field
+	Test: org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest:testCheckDataSizes
+		Variable: COLS
+			Type: int
+			Value: 10
+			isParameter?: false
+			wasDerived?: false
+Token: 8f071c57-5505-432a-8bb2-7be84dd80a2a
+	Class: org.apache.commons.dbutils.BaseTestCase
+	Method: field
+	Test: org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest:testCheckDataSizes
+		Variable: ROWS
+			Type: int
+			Value: 2
+			isParameter?: false
+			wasDerived?: false
+Token: dd55f53c-e241-4140-aebc-4add115d0dbb
+	Class: org.apache.commons.dbutils.BaseTestCase
+	Method: field
+	Test: org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest:testCheckDataSizes
+		Variable: COLS
+			Type: int
+			Value: 10
+			isParameter?: false
+			wasDerived?: false
+Token: 4e5d35d3-4c6b-4aab-a050-d2c714ddad69
+	Class: org.apache.commons.dbutils.BaseTestCase
+	Method: field
+	Test: org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest:testCheckDataSizes
+		Variable: ROWS
+			Type: int
+			Value: 2
+			isParameter?: false
+			wasDerived?: false
+Token: 3dd2691d-87db-4b6f-b900-32b77ad792dc
+	Class: org.apache.commons.dbutils.BaseTestCase
+	Method: field
+	Test: org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest:testCheckDataSizes
+		Variable: COLS
+			Type: int
+			Value: 10
+			isParameter?: false
+			wasDerived?: false

@@ -1,0 +1,276 @@
+CLASS: org.apache.commons.dbutils.handlers.columns.TimestampColumnHandler
+    METHOD: apply
+        Constant Value: columnIndex = 1
+        Small Value Set: columnIndex ∈ {}
+        Non-zero: columnIndex != 0
+        Range: columnIndex ∈ [1, 1]
+CLASS: org.apache.commons.dbutils.handlers.columns.FloatColumnHandler
+    METHOD: apply
+        Constant Value: columnIndex = 1
+        Small Value Set: columnIndex ∈ {}
+        Non-zero: columnIndex != 0
+        Range: columnIndex ∈ [1, 1]
+CLASS: org.apache.commons.dbutils.handlers.columns.ByteColumnHandler
+    METHOD: apply
+        Constant Value: columnIndex = 1
+        Small Value Set: columnIndex ∈ {}
+        Non-zero: columnIndex != 0
+        Range: columnIndex ∈ [1, 1]
+CLASS: org.apache.commons.dbutils.MockResultSet
+    METHOD: getObject
+        Small Value Set: columnIndex ∈ {}
+        Non-zero: columnIndex != 0
+        Range: columnIndex ∈ [1, 10]
+    METHOD: getInt
+        Small Value Set: columnIndex ∈ {}
+        Non-zero: columnIndex != 0
+        Range: columnIndex ∈ [5, 8]
+        Non-modulus: columnIndex != 0 (mod 7)
+    METHOD: getDouble
+        Constant Value: columnIndex = 10
+        Small Value Set: columnIndex ∈ {}
+        Non-zero: columnIndex != 0
+        Range: columnIndex ∈ [10, 10]
+    METHOD: getString
+        Small Value Set: columnIndex ∈ {}
+        Non-zero: columnIndex != 0
+        Range: columnIndex ∈ [1, 9]
+        Non-modulus: columnIndex != 0 (mod 5)
+        Non-modulus: columnIndex != 0 (mod 7)
+CLASS: org.apache.commons.dbutils.handlers.columns.BooleanColumnHandler
+    METHOD: apply
+        Constant Value: columnIndex = 1
+        Small Value Set: columnIndex ∈ {}
+        Non-zero: columnIndex != 0
+        Range: columnIndex ∈ [1, 1]
+CLASS: org.apache.commons.dbutils.handlers.columns.LongColumnHandler
+    METHOD: apply
+        Constant Value: columnIndex = 1
+        Small Value Set: columnIndex ∈ {}
+        Non-zero: columnIndex != 0
+        Range: columnIndex ∈ [1, 1]
+CLASS: org.apache.commons.dbutils.BaseTestCase
+    METHOD: field
+        Constant Value: COLS = 10
+        Small Value Set: COLS ∈ {}
+        Non-zero: COLS != 0
+        Range: COLS ∈ [10, 10]
+        Constant Value: ROWS = 2
+        Small Value Set: ROWS ∈ {}
+        Non-zero: ROWS != 0
+        Range: ROWS ∈ [2, 2]
+CLASS: org.apache.commons.dbutils.wrappers.SqlNullCheckedResultSet
+    METHOD: setNullLong
+        Constant Value: nullLong = 10
+        Small Value Set: nullLong ∈ {}
+        Non-zero: nullLong != 0
+        Range: nullLong ∈ [10, 10]
+    METHOD: setNullShort
+        Constant Value: nullShort = 10
+        Small Value Set: nullShort ∈ {}
+        Non-zero: nullShort != 0
+        Range: nullShort ∈ [10, 10]
+    METHOD: setNullByte
+        Constant Value: nullByte = 10
+        Small Value Set: nullByte ∈ {}
+    METHOD: setNullInt
+        Constant Value: nullInt = 10
+        Small Value Set: nullInt ∈ {}
+        Non-zero: nullInt != 0
+        Range: nullInt ∈ [10, 10]
+    METHOD: setNullDouble
+        Constant Value: nullDouble = 10.0
+        Small Value Set: nullDouble ∈ {}
+        Non-zero: nullDouble != 0
+        Range: nullDouble ∈ [10.0, 10.0]
+    METHOD: setNullBoolean
+        Constant Value: nullBoolean = true
+        Small Value Set: nullBoolean ∈ {}
+    METHOD: field
+        Small Value Set: nullShort ∈ {}
+        Range: nullShort ∈ [0, 10]
+        Small Value Set: nullBoolean ∈ {}
+        Small Value Set: nullByte ∈ {}
+        Small Value Set: nullDouble ∈ {}
+        Range: nullDouble ∈ [0.0, 10.0]
+        Small Value Set: nullFloat ∈ {}
+        Range: nullFloat ∈ [0.0, 10.0]
+        Small Value Set: nullInt ∈ {}
+        Range: nullInt ∈ [0, 10]
+        Modulus: nullInt = 0 (mod 2)
+        Modulus: nullInt = 0 (mod 5)
+        Small Value Set: nullLong ∈ {}
+        Range: nullLong ∈ [0, 10]
+    METHOD: setNullFloat
+        Constant Value: nullFloat = 10.0
+        Small Value Set: nullFloat ∈ {}
+        Non-zero: nullFloat != 0
+        Range: nullFloat ∈ [10.0, 10.0]
+CLASS: org.apache.commons.dbutils.QueryRunner$$EnhancerByMockitoWithCGLIB$$13ad596
+    METHOD: getCallback
+        Constant Value: varName = 0
+        Small Value Set: varName ∈ {}
+        Range: varName ∈ [0, 0]
+CLASS: org.apache.commons.dbutils.handlers.columns.SQLXMLColumnHandler
+    METHOD: apply
+        Constant Value: columnIndex = 1
+        Small Value Set: columnIndex ∈ {}
+        Non-zero: columnIndex != 0
+        Range: columnIndex ∈ [1, 1]
+CLASS: org.apache.commons.dbutils.handlers.columns.IntegerColumnHandler
+    METHOD: apply
+        Small Value Set: columnIndex ∈ {}
+        Non-zero: columnIndex != 0
+        Range: columnIndex ∈ [1, 8]
+        Non-modulus: columnIndex != 0 (mod 7)
+CLASS: org.apache.commons.dbutils.OutParameterTest
+    METHOD: field
+        Constant Value: INDEX = 2
+        Small Value Set: INDEX ∈ {}
+        Non-zero: INDEX != 0
+        Range: INDEX ∈ [2, 2]
+        Constant Value: VALUE = 42
+        Small Value Set: VALUE ∈ {}
+        Non-zero: VALUE != 0
+        Range: VALUE ∈ [42, 42]
+CLASS: org.apache.commons.dbutils.TestBean
+    METHOD: field
+        Small Value Set: intTest ∈ {}
+        Range: intTest ∈ [0, 3]
+        Small Value Set: nullPrimitiveTest ∈ {}
+        Range: nullPrimitiveTest ∈ [0, 7]
+        Modulus: nullPrimitiveTest = 0 (mod 7)
+        Small Value Set: columnProcessorDoubleTest ∈ {}
+        Non-zero: columnProcessorDoubleTest != 0
+        Range: columnProcessorDoubleTest ∈ [-1.0, 13.0]
+    METHOD: setIntTest
+        Small Value Set: i ∈ {}
+        Non-zero: i != 0
+        Range: i ∈ [1, 3]
+        Modulus: i = 1 (mod 2)
+        Non-modulus: i != 0 (mod 2)
+    METHOD: setNullPrimitiveTest
+        Constant Value: i = 0
+        Small Value Set: i ∈ {}
+        Range: i ∈ [0, 0]
+    METHOD: setColumnProcessorDoubleTest
+        Constant Value: d = 13.0
+        Small Value Set: d ∈ {}
+        Non-zero: d != 0
+        Range: d ∈ [13.0, 13.0]
+CLASS: org.apache.commons.dbutils.handlers.ScalarHandler
+    METHOD: field
+        Small Value Set: columnIndex ∈ {}
+        Non-zero: columnIndex != 0
+        Range: columnIndex ∈ [1, 2]
+    METHOD: <init>
+        Small Value Set: columnIndex ∈ {}
+        Non-zero: columnIndex != 0
+        Range: columnIndex ∈ [1, 2]
+CLASS: org.apache.commons.dbutils.handlers.BeanMapHandler
+    METHOD: field
+        Small Value Set: columnIndex ∈ {}
+        Non-zero: columnIndex != 0
+        Range: columnIndex ∈ [1, 2]
+    METHOD: <init>
+        Small Value Set: columnIndex ∈ {}
+        Non-zero: columnIndex != 0
+        Range: columnIndex ∈ [1, 2]
+        Constant Value: convert = 2
+        Small Value Set: convert ∈ {}
+        Non-zero: convert != 0
+        Range: convert ∈ [2, 2]
+CLASS: org.apache.commons.dbutils.handlers.ColumnListHandler
+    METHOD: field
+        Small Value Set: columnIndex ∈ {}
+        Non-zero: columnIndex != 0
+        Range: columnIndex ∈ [1, 2]
+    METHOD: <init>
+        Small Value Set: columnIndex ∈ {}
+        Non-zero: columnIndex != 0
+        Range: columnIndex ∈ [1, 2]
+CLASS: org.apache.commons.dbutils.handlers.columns.DoubleColumnHandler
+    METHOD: apply
+        Small Value Set: columnIndex ∈ {}
+        Non-zero: columnIndex != 0
+        Range: columnIndex ∈ [1, 10]
+        Modulus: columnIndex = 1 (mod 3)
+        Non-modulus: columnIndex != 0 (mod 3)
+        Non-modulus: columnIndex != 0 (mod 7)
+CLASS: org.apache.commons.dbutils.AbstractQueryRunner
+    METHOD: prepareStatement
+        Constant Value: returnedKeys = 1
+        Small Value Set: returnedKeys ∈ {}
+        Non-zero: returnedKeys != 0
+        Range: returnedKeys ∈ [1, 1]
+    METHOD: field
+        Small Value Set: pmdKnownBroken ∈ {}
+    METHOD: <init>
+        Constant Value: ds = true
+        Small Value Set: ds ∈ {}
+        Small Value Set: pmdKnownBroken ∈ {}
+CLASS: org.apache.commons.dbutils.handlers.columns.ShortColumnHandler
+    METHOD: apply
+        Constant Value: columnIndex = 1
+        Small Value Set: columnIndex ∈ {}
+        Non-zero: columnIndex != 0
+        Range: columnIndex ∈ [1, 1]
+CLASS: org.apache.commons.dbutils.QueryRunnerTest$MyBean
+    METHOD: field
+        Constant Value: a = 0
+        Small Value Set: a ∈ {}
+        Range: a ∈ [0, 0]
+        Constant Value: b = 0.0
+        Small Value Set: b ∈ {}
+        Range: b ∈ [0.0, 0.0]
+CLASS: org.apache.commons.dbutils.handlers.columns.StringColumnHandler
+    METHOD: apply
+        Small Value Set: columnIndex ∈ {}
+        Non-zero: columnIndex != 0
+        Range: columnIndex ∈ [1, 9]
+        Non-modulus: columnIndex != 0 (mod 5)
+        Non-modulus: columnIndex != 0 (mod 7)
+CLASS: org.apache.commons.dbutils.OutParameter
+    METHOD: field
+        Small Value Set: sqlType ∈ {}
+        Non-zero: sqlType != 0
+        Range: sqlType ∈ [4, 12]
+        Modulus: sqlType = 0 (mod 2)
+        Non-modulus: sqlType != 0 (mod 5)
+        Non-modulus: sqlType != 0 (mod 7)
+        Non-modulus: sqlType != 0 (mod 11)
+    METHOD: register
+        Small Value Set: index ∈ {}
+        Non-zero: index != 0
+        Range: index ∈ [1, 3]
+    METHOD: <init>
+        Small Value Set: sqlType ∈ {}
+        Non-zero: sqlType != 0
+        Range: sqlType ∈ [4, 12]
+        Modulus: sqlType = 0 (mod 2)
+        Non-modulus: sqlType != 0 (mod 5)
+        Non-modulus: sqlType != 0 (mod 7)
+        Non-modulus: sqlType != 0 (mod 11)
+    METHOD: setValue
+        Small Value Set: index ∈ {}
+        Non-zero: index != 0
+        Range: index ∈ [1, 3]
+CLASS: org.apache.commons.dbutils.QueryRunner
+    METHOD: insert
+        Constant Value: closeConn = true
+        Small Value Set: closeConn ∈ {}
+    METHOD: insertBatch
+        Constant Value: closeConn = true
+        Small Value Set: closeConn ∈ {}
+    METHOD: batch
+        Small Value Set: closeConn ∈ {}
+    METHOD: <init>
+        Constant Value: ds = true
+        Small Value Set: ds ∈ {}
+        Small Value Set: pmdKnownBroken ∈ {}
+    METHOD: update
+        Small Value Set: closeConn ∈ {}
+    METHOD: execute
+        Small Value Set: closeConn ∈ {}
+    METHOD: query
+        Small Value Set: closeConn ∈ {}

@@ -252,11 +252,11 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.0.0-M4</version>
           <configuration>
-            <argLine>-javaagent:/home/kisamefishfry/Documents/CS6367Project/traceAgent/target/TraceAgent-0.1-SNAPSHOT.jar=org/apache/commons/dbutils/</argLine>
+            <argLine>-javaagent:/home/alakh/CS6367Project/agent/target/agent-0.1-SNAPSHOT.jar=org/apache/commons/dbutils/</argLine>
             <properties>
             <property>
               <name>listener</name>
-              <value>traceAgent.TraceRunListener</value>
+              <value>agent.CommonListener</value>
             </property>
             </properties>
             <excludes>

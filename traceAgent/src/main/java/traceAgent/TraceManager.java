@@ -12,7 +12,6 @@ public class TraceManager {
     private String progName;
     private String curTest;
     private ExecutorService executor;
-
     private TraceManager()
     {
         tracedClasses = new Vector<TracedClass>();
@@ -76,6 +75,7 @@ public class TraceManager {
 
     public void complete()
     {
+	System.out.println("Finished run:");
         synchronized(tracedClasses)
 	    {
 		outputTraces(tracedClasses);
@@ -85,7 +85,7 @@ public class TraceManager {
     private void outputTraces(Vector<TracedClass> tracedClasses)
     {
         String logDir = "logs";
-        String logPath = logDir + File.separator + "trace.dat";
+        String logPath = logDir + File.separator + "trace" + java.time.Clock.systemUTC().instant() + ".dat";
         try
 	    {
 		File dir = new File(logDir);

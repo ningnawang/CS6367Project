@@ -52,6 +52,6 @@ public class TraceClassTransformVisitor extends ClassVisitor implements Opcodes
         MethodVisitor mv = cv.visitMethod(access, name, desc, signature, exceptions);
 	if (mv == null)
 	    return null;
-	return new VariableTracker(mv, name, desc, className, access, localVars, fields);
+	return new VarTracer(mv, name, desc, className, access, localVars, fields);
     }
 }

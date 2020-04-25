@@ -1,7 +1,5 @@
 package traceAgent;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.*;
 import java.util.*;
 import java.util.concurrent.ExecutorService;
@@ -10,19 +8,15 @@ import java.util.concurrent.Executors;
 public class TraceManager {
     private static volatile TraceManager instance = null;
 
-    private final List<TraceEntry> entries;
+    private final Vector<TracedClass> tracedClasses;
     private String progName;
     private String curTest;
     private ExecutorService executor;
-    private final Queue<List<TraceEntry>> queue;
-    private int total;
 
     private TraceManager()
     {
-        entries = new ArrayList<>();
+        tracedClasses = new Vector<TracedClass>();
         this.executor = Executors.newFixedThreadPool(8);
-        queue = new LinkedList<>();
-        total = 0;
     }
 
     public static TraceManager getInstance()
@@ -36,38 +30,33 @@ public class TraceManager {
         return instance;
     }
 
-    public void addDatum(String className, String methodName, String token, String var, String val, String type, boolean isField, boolean isDerived, int hashcode)
+    public void insertTrace(String className, String methodName, String var, String val, String type, boolean isParam)
     {
-        synchronized (entries)
+	boolean found = false;
+	for (TracedClass c : tracedClasses)
+	    if (className.equals(c.getName()))
+		{
+		    found = true;
+		    if (isParam)
+			c.addParam(methodName, var, val, type);
+		    else
+			c.addField(var, val, type);
+		    break;
+		}
+	if (!found)
 	    {
-		if (entries.size() > 1000)
-		    {
-			total += entries.size();
-			queue.add(new ArrayList<>(entries));
-			entries.clear();
-			schedule();
-		    }
+		TracedClass c = new TracedClass(className);
+		if (isParam)
+		    c.addParam(methodName, var, val, type);
+		else
+		    c.addField(var, val, type);
+		tracedClasses.add(c);
 	    }
-
-        TraceEntry entry = new TraceEntry()
-	    .withClassName(className == null ? "null" : className)
-	    .withMethodName(methodName == null ? "null" : methodName)
-	    .withToken(token == null ? "null" : token)
-	    .withTestCase(curTest == null ? "null" : curTest)
-	    .withDerived(isDerived)
-	    .withHashcode(hashcode)
-	    .withParameter(!isField)
-	    .withVarName(var == null ? "null" : var)
-	    .withVarValue(val == null ? "null" : val)
-	    .withVarType(type == null ? "null" : type);
-        entries.add(entry);
     }
 
-    public static void newDatum(String className, String methodName, String token, String var, String val, String type, int isField, int isDerived, int hashcode)
+    public static void callInsert(String className, String methodName, String var, String val, String type, int isParam)
     {
-        TraceManager.getInstance().addDatum(className, methodName,
-					    token, var, val, type, isField != 0,
-					    isDerived != 0, hashcode);
+        TraceManager.getInstance().insertTrace(className, methodName, var, val, type, isParam != 0);
     }
 
     public void setProgName(String n)
@@ -87,40 +76,16 @@ public class TraceManager {
 
     public void complete()
     {
-        synchronized (entries)
+        synchronized(tracedClasses)
 	    {
-		total += entries.size(); //entries = list of TraceEntries
-		queue.add(new ArrayList<>(entries));
-		entries.clear();
-	    }
-
-        flush();
-        System.out.println("Total traced entries: " + total);
+		outputTraces(tracedClasses);
+	    }    
     }
 
-    private void schedule()
-    {
-        executor.execute(this::flush);
-    }
-
-    private void flush()
-    {
-        while (true)
-	    synchronized (queue)
-		{
-		    if (queue.isEmpty())
-			break;
-		    List<TraceEntry> entries = queue.poll();
-		    if (entries == null || entries.size() == 0)
-			continue;
-		    writeToFile(entries);
-		}
-    }
-
-    private void writeToFile(List<TraceEntry> entries)
+    private void outputTraces(Vector<TracedClass> tracedClasses)
     {
         String logDir = "logs";
-        String logPath = logDir + File.separator + "trace" + UUID.randomUUID() + ".dat";
+        String logPath = logDir + File.separator + "trace.dat";
         try
 	    {
 		File dir = new File(logDir);
@@ -130,14 +95,11 @@ public class TraceManager {
 		if (!file.exists())
 		    file.createNewFile();
 
-            ObjectMapper objectMapper = new ObjectMapper();
-
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
             StringBuilder sb = new StringBuilder();
-            int i;
-            for (i = 0; i < entries.size() - 1; i++) 
-                if (entries.get(i) != null)
-                    sb.append(entries.get(i).toString());
+	    for (int i = 0; i < tracedClasses.size(); i++) 
+                if (tracedClasses.get(i) != null)
+                    sb.append(tracedClasses.get(i).stringify(0));
             bw.write(sb.toString());
             bw.close();
         }

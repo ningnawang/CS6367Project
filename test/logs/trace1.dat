@@ -1,0 +1,23 @@
+Class:
+	name: test.Stuff
+	fieldVars: 
+		name: z
+		type: int
+		values: 
+			0
+			2
+	methods: 
+		name: print
+		params: 
+			name: x
+			type: int
+			values: 
+				5
+				4
+		name: foo
+		params: 
+			name: y
+			type: int
+			values: 
+				1
+				2

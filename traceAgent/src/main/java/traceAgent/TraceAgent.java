@@ -12,57 +12,52 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
 import java.lang.instrument.Instrumentation;
-import java.util.HashSet;
+import java.util.Vector;
 
 public class TraceAgent
 {
-
-    public static void premain(String args, Instrumentation inst)
+    final static String prefix = "src" + File.separator + "main" + File.separator + "java";
+        
+    public static void premain(String args, Instrumentation i)
     {
-        HashSet<String> packages = getPackages(); //get packages in project
-        String pack = shortestPackage(packages);  //get base package
-        if (pack == null || pack.length() == 0)
-            System.out.println("Unsable to read package name from pom.xml");
+        String base = getBasePackage();  //get base package
+        if (base.length() == 0)
+            System.err.println("Unable to read package name from pom.xml");
         else
 	    {
-		TraceManager.getInstance().setProgName(getPackge()); //Set the program name
-		inst.addTransformer(new TraceClassTransformer(pack)); //add the transformer
+		TraceManager.getInstance().setProgName(getPackage()); //Set the program name
+		i.addTransformer(new TraceClassTransformer(base)); //add the transformer
         }
     }
 
-    private static String shortestPackage(HashSet<String> packages)
+    private static String getBasePackage()
     {
-        String result = null;
-        for (String p : packages) 
-            if (result == null || p.length() < result.length())
-                result = p;
-	return result;
+        String base = "";
+        for (String p : getPackages()) 
+            if (base.length() == 0 || base.length() > p.length())
+                base = p;
+	return base;
     }
 
-    private static HashSet<String> getPackages()
+    private static Vector<String> getPackages()
     {
-        String prefix = "src" + File.separator + "main" + File.separator + "java";
         File rootDir = new File(prefix);
         File[] files = rootDir.listFiles();
-        HashSet<String> packages = new HashSet<>();
-        listPackages(files, packages, prefix);
-        return packages;
+        return listDir(files);
     }
 
-    private static void listPackages(File[] files, HashSet<String> packages, String prefix)
+    private static Vector<String> listDir(File[] files)
     {
+	Vector<String> packages = new Vector<String>();
         for (File f : files)
             if (f.isDirectory())
-                listPackages(f.listFiles(), packages, prefix);
+                packages.addAll(listDir(f.listFiles()));
             else
-		{
-		    String path = f.getParent();
-		    path = path.substring(path.lastIndexOf(prefix) + prefix.length() + 1);
-		    packages.add(path);
-		}
+		packages.add(f.getParent().substring(f.getParent().lastIndexOf(prefix) + prefix.length() + 1));
+	return packages;
     }
 
-    private static String getPackge() {
+    private static String getPackage() {
         try
 	    {
 		File pomFile = new File("pom.xml");
@@ -95,15 +90,7 @@ public class TraceAgent
 		    return ((Element)n).getTextContent();
 		return null;
 	    }
-	catch (ParserConfigurationException e)
-	    {
-		e.printStackTrace();
-	    }
-	catch (IOException e)
-	    {
-		e.printStackTrace();
-	    }
-	catch (SAXException e)
+	catch (Exception e)
 	    {
 		e.printStackTrace();
 	    }

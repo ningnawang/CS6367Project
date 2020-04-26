@@ -42,15 +42,16 @@ public class TracedVar
     public String stringify(int tabs)
     {
 	String t = "";
-	for (int i = 0; i < tabs; ++i)
+	/*for (int i = 0; i < tabs; ++i)
 	    t += "\t";
-	
+	*/
 	String output = "";
-        output += t + "name: " + name + "\n";
-	output += t + "type: " + type + "\n";
-	output += t + "values: \n";
+        output += t + "var_name: " + name + "\n";
+	output += t + "var_type: " + type + "\n";
+	output += t + "var_val: \n";
 	for (int i = 0; i < foundValues.size(); ++i)
-	    output += t + "\t" + foundValues.get(i) + "\n";
+	    //output += t + "\t" + foundValues.get(i) + "\n";
+            output += t + "" + foundValues.get(i) + "\n";
         return output;
     }
 

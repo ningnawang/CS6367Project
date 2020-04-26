@@ -4,9 +4,9 @@ import java.util.Vector;
 
 public class TracedClass
 {
-    private String name;
-    private Vector<TracedMethod> methods;
-    private Vector<TracedVar> fieldVars;
+    private String name; //name of the traced classes
+    private Vector<TracedMethod> methods; //name of the methods under classes
+    private Vector<TracedVar> fieldVars; //name of the parameters passed to the methods
     
     public TracedClass()
     {
@@ -66,18 +66,24 @@ public class TracedClass
     public String stringify(int tabs)
     {
 	String t = "";
-	for (int i = 0; i < tabs; ++i)
+	/*for (int i = 0; i < tabs; ++i)
 	    t += "\t";
-	
+	*/
 	String output = "";
-	output += t + "Class:\n";
-	output += t + "\tname: " + name + "\n";
-	output += t + "\tfieldVars: \n";
+	output += t + "Class: ";
+	//output += t + "\tname: " + name + "\n";
+        output += t + "class_name: " + name + "\n";
+	//output += t + "\tfieldVars: \n";
+        output += t + "field_variables: \n";
 	for (int i = 0; i < fieldVars.size(); ++i)
-	    output += fieldVars.get(i).stringify(tabs + 2);
-	output += t + "\tmethods: \n";
+	    //output += fieldVars.get(i).stringify(tabs + 2);
+            output += fieldVars.get(i).stringify(0);
+	//output += t + "\tmethods: \n";
+        output += t + "methods: \n";
 	for (int i = 0; i < methods.size(); ++i)
-	    output += methods.get(i).stringify(tabs + 2); 
+	    //output += methods.get(i).stringify(tabs + 2);
+            output += methods.get(i).stringify(0);
         return output;
     }
 }
+

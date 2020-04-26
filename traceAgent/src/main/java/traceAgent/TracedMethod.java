@@ -45,11 +45,12 @@ public class TracedMethod
     public String stringify(int tabs)
     {
 	String t = "";
-	for (int i = 0; i < tabs; ++i)
-	    t += "\t";
+	/*for (int i = 0; i < tabs; ++i){
+	    //t += "\t";
+        }*/
 	
 	String output = "";
-	output += t + "name: " + name + "\n";
+	output += t + "method_name: " + name + "\n";
 	output += t + "params: \n";
 	for (int i = 0; i < params.size(); ++i)
 	    output += params.get(i).stringify(tabs + 1); 

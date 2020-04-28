@@ -89,7 +89,7 @@ Just like for running the statement listener, add the following plugin to the po
   <properties>
     <property>
       <name>listener</name>
-      <value>traceAgent.TraceRunListener</value>
+      <value>invariantsAgent.InvariantsRunListener</value>
     </property>
   </properties>
 </configuration>

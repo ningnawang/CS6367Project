@@ -9,7 +9,7 @@
     <version>0.1-SNAPSHOT</version>
   </parent>
 
-    <artifactId>TraceAgent</artifactId>
+    <artifactId>InvariantsAgent</artifactId>
     <dependencies>
         <dependency>
             <groupId>org.ow2.asm</groupId>
@@ -41,7 +41,7 @@
         <configuration>
           <archive>
             <manifestEntries>
-              <Premain-Class>traceAgent.TraceAgent</Premain-Class>
+              <Premain-Class>invariantsAgent.InvariantsAgent</Premain-Class>
               <Can-Retransform-Classes>true</Can-Retransform-Classes>
             </manifestEntries>
           </archive>

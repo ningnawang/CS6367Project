@@ -1,9 +1,8 @@
-package traceAgent;
+package invariantsAgent;
 
 import java.util.Vector;
 
-public class TracedVar
-{
+public class TracedVar {
     private Vector<String> foundValues;
     private String name;
     private String type;

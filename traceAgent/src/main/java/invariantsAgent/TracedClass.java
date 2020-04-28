@@ -1,24 +1,23 @@
-package traceAgent;
+package invariantsAgent;
 
 import java.util.Vector;
 
-public class TracedClass
-{
+public class TracedClass {
     private String name; //name of the traced classes
-    private Vector<TracedMethod> methods; //name of the methods under classes
+    private Vector<invariantsAgent.TracedMethod> methods; //name of the methods under classes
     private Vector<TracedVar> fieldVars; //name of the parameters passed to the methods
     
     public TracedClass()
     {
 	name = "Unknown";
-	methods = new Vector<TracedMethod>();
+	methods = new Vector<invariantsAgent.TracedMethod>();
 	fieldVars = new Vector<TracedVar>();
     }
     
     public TracedClass(String n)
     {
 	name = n;
-	methods = new Vector<TracedMethod>();
+	methods = new Vector<invariantsAgent.TracedMethod>();
 	fieldVars = new Vector<TracedVar>();
     }
 
@@ -30,7 +29,7 @@ public class TracedClass
     public void addParam(String mN, String var, String val, String type)
     {
 	boolean found = false;
-	for (TracedMethod m : methods)
+	for (invariantsAgent.TracedMethod m : methods)
 	    if (mN.equals(m.getName()))
 		{
 		    found = true;
@@ -39,7 +38,7 @@ public class TracedClass
 		}
 	if (!found)
 	    {
-		TracedMethod m = new TracedMethod(mN);
+		invariantsAgent.TracedMethod m = new TracedMethod(mN);
 		m.addParam(var, val, type);
 		methods.add(m);
 	    }

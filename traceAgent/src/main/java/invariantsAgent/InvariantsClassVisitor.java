@@ -1,4 +1,4 @@
-package traceAgent;
+package invariantsAgent;
 
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;
@@ -12,14 +12,12 @@ import org.objectweb.asm.tree.MethodNode;
 import java.io.IOException;
 import java.util.List;
 
-public class TraceClassTransformVisitor extends ClassVisitor implements Opcodes
-{
-
+public class InvariantsClassVisitor extends ClassVisitor implements Opcodes {
     private String className;
     private ClassNode classNode;
     private List<FieldNode> fields;
 
-    public TraceClassTransformVisitor(final ClassVisitor cv, final String cn)
+    public InvariantsClassVisitor(final ClassVisitor cv, final String cn)
     {
         super(Opcodes.ASM5, cv);
         className = cn;
@@ -52,6 +50,6 @@ public class TraceClassTransformVisitor extends ClassVisitor implements Opcodes
         MethodVisitor mv = cv.visitMethod(access, name, desc, signature, exceptions);
 	if (mv == null)
 	    return null;
-	return new VarTracer(mv, name, desc, className, access, localVars, fields);
+	return new InvariantsMethodVisitor(mv, name, desc, className, access, localVars, fields);
     }
 }

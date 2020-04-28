@@ -1,21 +1,17 @@
-package traceAgent;
+package invariantsAgent;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
-import java.io.IOException;
 import java.lang.instrument.Instrumentation;
 import java.util.Vector;
 
-public class TraceAgent
-{
+public class InvariantsAgent {
     final static String prefix = "src" + File.separator + "main" + File.separator + "java";
         
     public static void premain(String args, Instrumentation i)
@@ -26,7 +22,7 @@ public class TraceAgent
         else
 	    {
 		TraceManager.getInstance().setProgName(getPackage()); //Set the program name
-		i.addTransformer(new TraceClassTransformer(base)); //add the transformer
+		i.addTransformer(new InvariantsClassFileTransformer(base)); //add the transformer
         }
     }
 
@@ -96,5 +92,4 @@ public class TraceAgent
 	    }
         return null;
     }
-
 }

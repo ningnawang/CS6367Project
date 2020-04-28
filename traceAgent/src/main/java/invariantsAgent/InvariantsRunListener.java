@@ -1,12 +1,12 @@
-package traceAgent;
+package invariantsAgent;
 
 import org.junit.runner.Description;
 import org.junit.runner.Result;
 import org.junit.runner.notification.RunListener;
 
-public class TraceRunListener extends RunListener {
+public class InvariantsRunListener extends RunListener {
 
-    private TraceManager manager;
+    private invariantsAgent.TraceManager manager;
 
     @Override
     public void testRunStarted(Description description) throws Exception

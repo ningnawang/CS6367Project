@@ -1,4 +1,4 @@
-package traceAgent;
+package invariantsAgent;
 
 import java.io.*;
 import java.util.*;

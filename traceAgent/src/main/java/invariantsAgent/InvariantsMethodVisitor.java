@@ -1,4 +1,4 @@
-package traceAgent;
+package invariantsAgent;
 
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
@@ -7,7 +7,7 @@ import org.objectweb.asm.tree.FieldNode;
 
 import java.util.List;
 
-public class VarTracer extends MethodVisitor implements Opcodes {
+public class InvariantsMethodVisitor extends MethodVisitor implements Opcodes {
 
     private String methodName;
     private String className;
@@ -19,7 +19,7 @@ public class VarTracer extends MethodVisitor implements Opcodes {
     private String[] localVars;
     private FieldNode[] fields;
 
-    public VarTracer(final MethodVisitor mv, String mn, String md, String cn, int a, String[] lv, List<FieldNode> fs)
+    public InvariantsMethodVisitor(final MethodVisitor mv, String mn, String md, String cn, int a, String[] lv, List<FieldNode> fs)
     {
         super(Opcodes.ASM5, mv);
         methodName = mn;
@@ -95,7 +95,7 @@ public class VarTracer extends MethodVisitor implements Opcodes {
         mv.visitLdcInsn(type);
         mv.visitLdcInsn(new Integer(0));
 
-        mv.visitMethodInsn(Opcodes.INVOKESTATIC, "traceAgent/TraceManager", "callInsert", "("
+        mv.visitMethodInsn(Opcodes.INVOKESTATIC, "invariantsAgent/TraceManager", "callInsert", "("
 			   + strIdent //className
 			   + strIdent //methodName
 			   + strIdent //varName
@@ -130,7 +130,7 @@ public class VarTracer extends MethodVisitor implements Opcodes {
         mv.visitLdcInsn(type);
         mv.visitLdcInsn(new Integer(1));
 
-	mv.visitMethodInsn(Opcodes.INVOKESTATIC, "traceAgent/TraceManager", "callInsert", "("
+	mv.visitMethodInsn(Opcodes.INVOKESTATIC, "invariantsAgent/TraceManager", "callInsert", "("
 			   + strIdent //className
 			   + strIdent //methodName
 			   + strIdent //varName
